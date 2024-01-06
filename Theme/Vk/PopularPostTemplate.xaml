@@ -1,0 +1,52 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style TargetType="ListViewItem" x:Key="OnePopularPost">
+        <Setter Property="Background" Value="#272545"/>
+        <Setter Property="Opacity" Value="0.8"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListViewItem">
+                    <Border Background="{TemplateBinding Background}"
+                            Height="200"
+                            Width="900"
+                            HorizontalAlignment="Left"
+                            CornerRadius="15"
+                            Margin="15 1 0 8"
+                            BorderThickness="1">
+                        <StackPanel Orientation="Horizontal">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="300"></ColumnDefinition>
+                                    <ColumnDefinition Width="430"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Border
+                                    Width="300"
+                                    MaxHeight="250"
+                                    Grid.Column="0"
+                                    HorizontalAlignment="Center"
+                                    BorderThickness="1"
+                                    BorderBrush="#59538f"
+                                    Background="#272530">
+                                    <Image Source="{Binding Image1}"/>
+                                </Border>
+                                <TextBlock Text="{Binding text}"
+                                       Grid.Column="1"
+                                       Margin="10 10 0 0"
+                                       Foreground="White"
+                                       TextWrapping="Wrap"
+                                       TextAlignment="Left"
+                                       MaxWidth="500"
+                                       FontFamily="Comic Sans MS"
+                                       />
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+
+</ResourceDictionary>

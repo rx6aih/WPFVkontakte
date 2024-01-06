@@ -1,0 +1,41 @@
+﻿<Application x:Class="WPFVkontakte.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WPFVkontakte"
+             xmlns:viewModel="clr-namespace:WPFVkontakte.ViewModel"
+             xmlns:view="clr-namespace:WPFVkontakte.View"
+             StartupUri="View/MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Theme/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="/Theme/TextBoxTheme.xaml"/>
+                <ResourceDictionary Source="/Theme/Vk/PostTemplate.xaml"/>
+                <ResourceDictionary Source="/Theme/Vk/PopularPostTemplate.xaml"/>
+                <ResourceDictionary Source="/Theme/Vk/SquarePostTemplate.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            
+            <DataTemplate DataType="{x:Type viewModel:PopularViewModel}">
+                <view:PopularView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:UserGroupsViewModel}">
+                <view:UserGroupsView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:SportViewModel}">
+                <view:SportView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:GamesViewModel}">
+                <view:GamesView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:PolyticViewModel}">
+                <view:PolyticView/>
+            </DataTemplate>
+
+        </ResourceDictionary>
+        
+    </Application.Resources>
+</Application>

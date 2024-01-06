@@ -1,0 +1,96 @@
+﻿<Window x:Class="WPFVkontakte.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModel="clr-namespace:WPFVkontakte.ViewModel"
+        xmlns:local="clr-namespace:WPFVkontakte.View"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None"
+        Title="MainWindow" Height="1200" Width="1300">
+
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+    
+    
+    <Border Background="#272535"
+            CornerRadius="20">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="74"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Text="VTime"
+                       Foreground="White"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Margin="30 0 0 0"
+                       FontSize="30"
+                       />
+            <StackPanel Grid.Row="1" Background="#272540">
+                <RadioButton Content="Популярное"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="18"
+                             Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="True"
+                             Command="{Binding PopularViewComand}"
+                             />
+                
+                <RadioButton Content="Мои группы"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding UserGroupsViewComand}"/>
+                
+                <RadioButton Content="По категориям"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             x:Name="Category"
+                             Click="RadioButton_Checked"/>
+                
+                    <RadioButton x:Name="PolyticButton" 
+                                 Content="Политика"
+                                 Style="{StaticResource MenuButtonTheme}"
+                                 Foreground="White"
+                                 FontSize="12" 
+                                 Height="40"
+                                 Command="{Binding PolyticViewComand}"
+                                 Visibility="Hidden"/>
+                    
+                    <RadioButton x:Name="SportButton" Content="Спорт" Style="{StaticResource MenuButtonTheme}"
+                                 Foreground="White"
+                                 FontSize="12" 
+                                 Height="40"
+                                 Command="{Binding SportViewComand}"
+                                 Visibility="Hidden"/>
+
+                    <RadioButton x:Name="GameButton" Content="Игры" Style="{StaticResource MenuButtonTheme}"
+                                 Foreground="White"
+                                 FontSize="12" 
+                                 Height="40"
+                                 Command="{Binding GamesViewComand}"
+                                 Visibility="Hidden"/>
+                </StackPanel>
+                
+
+            <ContentControl Grid.Row="0" 
+                            Grid.RowSpan="2"
+                            Grid.Column="1"
+                            Margin="10 0 10 10"
+                            Content="{Binding CurrentView}"/>
+            
+        </Grid>
+    </Border>
+</Window>
